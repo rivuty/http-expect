@@ -13,7 +13,10 @@
     "@rivuty/http-status": "^1.0.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^20.5.0",
+    "@commitlint/types": "^20.5.0",
     "@types/node": "^25.5.0",
+    "lefthook": "^2.1.4",
     "npm-run-all2": "^8.0.4",
     "oxfmt": "^0.41.0",
     "oxlint": "^1.56.0",
