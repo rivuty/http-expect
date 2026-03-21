@@ -1,5 +1,8 @@
 {
   "name": "@rivuty/http-expect",
   "version": "0.0.0",
+  "devDependencies": {
+    "@types/node": "^25.5.0"
+  },
   "packageManager": "pnpm@10.32.1"
 }
