@@ -14,6 +14,7 @@
     "typeAware": true
   },
   "rules": {
+    "eslint/no-magic-numbers": ["error", { "ignore": [0] }],
     "id-length": ["error", { "exceptions": ["_"] }],
     "import/consistent-type-specifier-style": ["error", "prefer-inline"],
     "import/no-named-export": "off",
@@ -21,6 +22,7 @@
     "sort-keys": "off",
     "typescript/explicit-function-return-type": "off",
     "typescript/explicit-module-boundary-types": "off",
+    "typescript/no-import-type-side-effects": "off",
     "typescript/prefer-readonly-parameter-types": "off",
     "unicorn/filename-case": "off"
   },
