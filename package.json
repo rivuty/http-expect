@@ -1,6 +1,9 @@
 {
   "name": "@rivuty/http-expect",
   "version": "0.0.0",
+  "dependencies": {
+    "@rivuty/http-status": "^1.0.0"
+  },
   "devDependencies": {
     "@types/node": "^25.5.0"
   },

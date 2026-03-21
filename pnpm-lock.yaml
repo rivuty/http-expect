@@ -7,12 +7,20 @@ settings:
 importers:
 
   .:
+    dependencies:
+      '@rivuty/http-status':
+        specifier: ^1.0.0
+        version: 1.0.0
     devDependencies:
       '@types/node':
         specifier: ^25.5.0
         version: 25.5.0
 
 packages:
+
+  '@rivuty/http-status@1.0.0':
+    resolution: {integrity: sha512-5/a+JQpW7bJGp8RdBQqBsci2KPJ1Ua0+kjVfvIxoatrId8eVxVrvVqzE4UMYXqL2wC14+0HJ+XwoX4T8vsOqFw==}
+    engines: {node: 25.8.1}
 
   '@types/node@25.5.0':
     resolution: {integrity: sha512-jp2P3tQMSxWugkCUKLRPVUpGaL5MVFwF8RDuSRztfwgN1wmqJeMSbKlnEtQqU8UrhTmzEmZdu2I6v2dpp7XIxw==}
@@ -21,6 +29,8 @@ packages:
     resolution: {integrity: sha512-AsuCzffGHJybSaRrmr5eHr81mwJU3kjw6M+uprWvCXiNeN9SOGwQ3Jn8jb8m3Z6izVgknn1R0FTCEAP2QrLY/w==}
 
 snapshots:
+
+  '@rivuty/http-status@1.0.0': {}
 
   '@types/node@25.5.0':
     dependencies:
