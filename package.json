@@ -1,11 +1,16 @@
 {
   "name": "@rivuty/http-expect",
   "version": "0.0.0",
+  "scripts": {
+    "format": "oxfmt --check",
+    "format:fix": "oxfmt --write"
+  },
   "dependencies": {
     "@rivuty/http-status": "^1.0.0"
   },
   "devDependencies": {
-    "@types/node": "^25.5.0"
+    "@types/node": "^25.5.0",
+    "oxfmt": "^0.41.0"
   },
   "packageManager": "pnpm@10.32.1"
 }
