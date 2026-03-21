@@ -1,0 +1,26 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "categories": {
+    "correctness": "error",
+    "nursery": "error",
+    "pedantic": "error",
+    "perf": "error",
+    "restriction": "error",
+    "style": "error",
+    "suspicious": "error"
+  },
+  "plugins": ["eslint", "typescript", "unicorn", "oxc", "import", "promise"],
+  "options": {
+    "typeAware": true
+  },
+  "rules": {
+    "id-length": ["error", { "exceptions": ["_"] }],
+    "import/no-named-export": "off",
+    "import/prefer-default-export": "off",
+    "sort-keys": "off",
+    "typescript/explicit-function-return-type": "off",
+    "typescript/explicit-module-boundary-types": "off",
+    "typescript/prefer-readonly-parameter-types": "off",
+    "unicorn/filename-case": "off"
+  }
+}

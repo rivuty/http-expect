@@ -1,6 +1,6 @@
 import { HttpStatusCode } from '@rivuty/http-status';
 
-const expectCode = (response: Response, code: (typeof HttpStatusCode)[keyof typeof HttpStatusCode]) => {
+const expectCode = (response: { status: number }, code: (typeof HttpStatusCode)[keyof typeof HttpStatusCode]) => {
   const actual = response.status;
 
   return {
@@ -12,5 +12,5 @@ const expectCode = (response: Response, code: (typeof HttpStatusCode)[keyof type
 };
 
 export const status = {
-  isOk: (received: Response) => expectCode(received, HttpStatusCode.Ok),
+  isOk: (received: { status: number }) => expectCode(received, HttpStatusCode.Ok),
 };
