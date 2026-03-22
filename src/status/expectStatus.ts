@@ -1,13 +1,21 @@
 import { type HttpStatusCode } from '@rivuty/http-status';
 import { type ResponseLike } from './ResponseLike';
 
-export const expectStatus = (response: ResponseLike, status: (typeof HttpStatusCode)[keyof typeof HttpStatusCode]) => {
+export const expectStatus = (
+  response: ResponseLike,
+  expected: (typeof HttpStatusCode)[keyof typeof HttpStatusCode],
+) => {
   const actual = response.status;
 
+  const pass = actual === expected;
+
   return {
-    pass: actual === status,
-    message: () => 'Response has wrong status code',
+    pass,
+    message: () =>
+      pass
+        ? `Response has not expected ${actual} status code`
+        : `Response has ${actual} instead of ${expected} status code`,
     actual,
-    expected: status,
+    expected,
   };
 };

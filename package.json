@@ -7,7 +7,8 @@
     "format": "oxfmt --check",
     "format:fix": "oxfmt --write",
     "typecheck": "tsc",
-    "verify": "run-p -c lint format typecheck"
+    "test": "vitest run",
+    "verify": "run-p -c lint format typecheck test"
   },
   "dependencies": {
     "@rivuty/http-status": "^1.0.0"
@@ -21,7 +22,8 @@
     "oxfmt": "^0.41.0",
     "oxlint": "^1.56.0",
     "oxlint-tsgolint": "^0.17.1",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.0"
   },
   "packageManager": "pnpm@10.32.1"
 }

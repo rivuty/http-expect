@@ -13,11 +13,16 @@
   "options": {
     "typeAware": true
   },
+  "env": {
+    "browser": true
+  },
   "rules": {
     "eslint/no-magic-numbers": ["error", { "ignore": [0] }],
-    "id-length": ["error", { "exceptions": ["_"] }],
+    "eslint/no-ternary": "off",
+    "id-length": ["error", { "exceptionPatterns": ["[A-Z]"], "exceptions": ["_"] }],
     "import/consistent-type-specifier-style": ["error", "prefer-inline"],
     "import/no-named-export": "off",
+    "import/no-relative-parent-imports": "off",
     "import/prefer-default-export": "off",
     "sort-keys": "off",
     "typescript/explicit-function-return-type": "off",
@@ -31,6 +36,12 @@
       "files": ["*.config.ts"],
       "rules": {
         "import/no-default-export": "off"
+      }
+    },
+    {
+      "files": ["*.d.ts"],
+      "rules": {
+        "import/no-unassigned-import": ["error", { "allow": ["vitest"] }]
       }
     }
   ]
