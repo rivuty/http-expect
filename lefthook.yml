@@ -18,5 +18,5 @@ pre-push:
   commands:
     typecheck:
       run: pnpm typecheck
-    test:unit:
+    test:
       run: pnpm test

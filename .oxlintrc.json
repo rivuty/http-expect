@@ -44,6 +44,15 @@
       "rules": {
         "import/no-unassigned-import": ["error", { "allow": ["vitest"] }]
       }
+    },
+    {
+      "files": ["*.test.ts"],
+      "plugins": ["vitest"],
+      "rules": {
+        "eslint/max-lines-per-function": "off",
+        "no-magic-numbers": "off",
+        "vitest/no-importing-vitest-globals": "off"
+      }
     }
   ]
 }
