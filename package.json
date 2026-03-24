@@ -1,6 +1,8 @@
 {
   "name": "@rivuty/http-expect",
   "version": "0.0.0",
+  "license": "MIT",
+  "author": "Oleg Michailov",
   "files": [
     "dist"
   ],
