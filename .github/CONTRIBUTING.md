@@ -37,6 +37,14 @@ Thank you for creating them. People _love_ thorough bug reports. I'm not even ki
 - What actually happens
 - Notes (possibly including why you think this might be happening, or stuff you tried that didn't work)
 
+## Development Setup
+
+After cloning the repository, install git hooks by running:
+
+```sh
+pnpm exec lefthook install
+```
+
 ## Pull Request Checklist
 
 1. Fork the repo and create your branch from `main` and, if needed, rebase to the current main

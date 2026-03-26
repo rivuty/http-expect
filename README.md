@@ -140,6 +140,10 @@ Works with any HTTP client that exposes a numeric `status` field — `fetch`, `a
 | `toHaveNotExtendedStatus()`                   | 510    |
 | `toHaveNetworkAuthenticationRequiredStatus()` | 511    |
 
+## Contributing
+
+Thank you for considering contributing to @rivuty/http-status! You can read the contribution guide [here](.github/CONTRIBUTING.md).
+
 ## License
 
 @rivuty/http-expect is open-sourced under the [MIT license](LICENSE).
