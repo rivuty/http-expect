@@ -1,6 +1,6 @@
 {
   "name": "@rivuty/http-expect",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Vitest matchers for HTTP response status codes",
   "keywords": [
     "matchers",
