@@ -1,8 +1,17 @@
 {
   "name": "@rivuty/http-expect",
   "version": "0.0.0",
+  "description": "Vitest matchers for HTTP response status codes",
+  "keywords": [
+    "matchers",
+    "vitest"
+  ],
   "license": "MIT",
   "author": "Oleg Michailov",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rivuty/http-expect.git"
+  },
   "files": [
     "dist"
   ],
@@ -14,6 +23,9 @@
       "import": "./dist/vitest.js"
     }
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "vite build",
     "lint": "oxlint",
@@ -22,7 +34,8 @@
     "format:fix": "oxfmt --write",
     "typecheck": "tsc",
     "test": "vitest run",
-    "verify": "run-p -c lint format typecheck test"
+    "verify": "run-p -c lint format typecheck test",
+    "release": "release-it"
   },
   "dependencies": {
     "@rivuty/http-status": "^1.0.0"
@@ -36,6 +49,7 @@
     "oxfmt": "^0.42.0",
     "oxlint": "^1.57.0",
     "oxlint-tsgolint": "^0.17.1",
+    "release-it": "^19.2.4",
     "typescript": "^5.9.3",
     "vite": "^8.0.1",
     "vite-plugin-dts": "^4.5.4",
