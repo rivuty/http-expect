@@ -35,6 +35,7 @@
     "typecheck": "tsc",
     "test": "vitest run",
     "verify": "run-p -c lint format typecheck test",
+    "prepublishOnly": "run-p -c verify build",
     "release": "release-it"
   },
   "dependencies": {
