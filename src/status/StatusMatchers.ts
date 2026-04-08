@@ -1,6 +1,7 @@
 import { HttpStatusCode } from '@rivuty/http-status';
-import { type ResponseLike } from './ResponseLike';
+
 import { expectStatus } from './expectStatus';
+import { type ResponseLike } from './ResponseLike';
 
 export interface StatusMatchers<_> {
   // 1xx Informational

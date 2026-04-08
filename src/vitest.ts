@@ -1,4 +1,5 @@
 import { expect } from 'vitest';
+
 import { statusMatchers, type StatusMatchers } from './status/StatusMatchers';
 
 expect.extend(statusMatchers);

@@ -1,5 +1,5 @@
-import { defineConfig } from 'vitest/config';
 import dts from 'vite-plugin-dts';
+import { defineConfig } from 'vitest/config';
 
 import { dependencies, devDependencies } from './package.json';
 

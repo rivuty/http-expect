@@ -1,4 +1,5 @@
 import { type HttpStatusCode } from '@rivuty/http-status';
+
 import { type ResponseLike } from './ResponseLike';
 
 export const expectStatus = (
