@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@rivuty/http-status':
-        specifier: ^1.0.0
-        version: 1.0.0
+        specifier: ^2.0.0
+        version: 2.0.0
     devDependencies:
       '@commitlint/cli':
         specifier: ^20.5.0
@@ -656,9 +656,8 @@ packages:
     resolution: {integrity: sha512-oeQJs1aa8Ghke8JIK9yuq/+KjMiaYeDZ38jx7MhkXncXlUKjqQ3wEm2X3qCKyjo+ZZofZj+WsEEiqkTtRuE2xQ==}
     engines: {node: ^20.9.0 || >=22.0.0, npm: '>=10.8.2'}
 
-  '@rivuty/http-status@1.0.0':
-    resolution: {integrity: sha512-5/a+JQpW7bJGp8RdBQqBsci2KPJ1Ua0+kjVfvIxoatrId8eVxVrvVqzE4UMYXqL2wC14+0HJ+XwoX4T8vsOqFw==}
-    engines: {node: 25.8.1}
+  '@rivuty/http-status@2.0.0':
+    resolution: {integrity: sha512-59fm+wGQ5pj5xb6gaVhUwHOhv3uDThMs5Jd/1NfT2oSIaPEX/ubhAegOERQxJ+etJJJ0pmkqD/v7831a/xqzdw==}
 
   '@rivuty/oxfmt-config@1.0.0':
     resolution: {integrity: sha512-neb+Uld8r3WXE+7rems6RiQVXPiZQjP/QFWH9wbX5sTWAu0HFACeQGz/EeOLFPXMf18+b0plbk9NYM0f0SCmXg==}
@@ -2731,7 +2730,7 @@ snapshots:
 
   '@phun-ky/typeof@2.0.3': {}
 
-  '@rivuty/http-status@1.0.0': {}
+  '@rivuty/http-status@2.0.0': {}
 
   '@rivuty/oxfmt-config@1.0.0(oxfmt@0.44.0)':
     dependencies:

@@ -40,7 +40,7 @@
     "release": "release-it"
   },
   "dependencies": {
-    "@rivuty/http-status": "^1.0.0"
+    "@rivuty/http-status": "^2.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.5.0",
