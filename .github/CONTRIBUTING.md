@@ -51,10 +51,9 @@ pnpm exec lefthook install
    branch before submitting your pull request. If it doesn't merge cleanly with
    main you may be asked to rebase your changes.
 2. Commits should be as small as possible, while ensuring that each commit is
-   correct independently (i.e., each commit should compile and pass tests).
+   correct independently (i.e., each commit should bypass verification `npm run verify`).
 3. Add tests relevant to the fixed bug or new feature.
 4. Ensure the tests passes.
-5. Make sure code lints.
 
 ## Code of Conduct
 

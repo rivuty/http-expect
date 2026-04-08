@@ -142,7 +142,7 @@ Works with any HTTP client that exposes a numeric `status` field — `fetch`, `a
 
 ## Contributing
 
-Thank you for considering contributing to @rivuty/http-status! You can read the contribution guide [here](.github/CONTRIBUTING.md).
+Thank you for considering contributing to @rivuty/http-expect! You can read the contribution guide [here](.github/CONTRIBUTING.md).
 
 ## License
 
