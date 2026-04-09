@@ -1,9 +1,16 @@
 import { HttpStatusCodes } from '@rivuty/http-status';
 
 import { expectStatus } from './expectStatus';
+import { expectStatusRange } from './expectStatusRange';
 import { type ResponseLike } from './ResponseLike';
 
 export interface StatusMatchers<_> {
+  // 1xx-5xx ranges
+  toHave1xxInformationalStatus: () => void;
+  toHave2xxSuccessfulStatus: () => void;
+  toHave3xxRedirectionStatus: () => void;
+  toHave4xxClientErrorStatus: () => void;
+  toHave5xxServerErrorStatus: () => void;
   // 1xx Informational
   toHaveContinueStatus: () => void;
   toHaveSwitchingProtocolsStatus: () => void;
@@ -73,6 +80,17 @@ export interface StatusMatchers<_> {
 }
 
 export const statusMatchers = {
+  // 1xx-5xx ranges
+  toHave1xxInformationalStatus: (received: ResponseLike) =>
+    expectStatusRange({ response: received, min: 100, max: 199, label: '1xx Informational' }),
+  toHave2xxSuccessfulStatus: (received: ResponseLike) =>
+    expectStatusRange({ response: received, min: 200, max: 299, label: '2xx Successful' }),
+  toHave3xxRedirectionStatus: (received: ResponseLike) =>
+    expectStatusRange({ response: received, min: 300, max: 399, label: '3xx Redirection' }),
+  toHave4xxClientErrorStatus: (received: ResponseLike) =>
+    expectStatusRange({ response: received, min: 400, max: 499, label: '4xx Client Error' }),
+  toHave5xxServerErrorStatus: (received: ResponseLike) =>
+    expectStatusRange({ response: received, min: 500, max: 599, label: '5xx Server Error' }),
   // 1xx Informational
   toHaveContinueStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.Continue),
   toHaveSwitchingProtocolsStatus: (received: ResponseLike) =>

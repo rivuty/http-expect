@@ -2,6 +2,19 @@ import { describe, expect, it } from 'vitest';
 
 describe('StatusMatchers', () => {
   it.each([
+    // 1xx-5xx ranges
+    ['toHave1xxInformationalStatus', 100, '1xx Informational'],
+    ['toHave2xxSuccessfulStatus', 200, '2xx Successful'],
+    ['toHave3xxRedirectionStatus', 300, '3xx Redirection'],
+    ['toHave4xxClientErrorStatus', 400, '4xx Client Error'],
+    ['toHave5xxServerErrorStatus', 500, '5xx Server Error'],
+  ] as const)('%s', (matcher, status, label) => {
+    expect({ status })[matcher]();
+
+    expect(() => expect({ status: 99 })[matcher]()).toThrow(`Response has 99 instead of a ${label} status code`);
+  });
+
+  it.each([
     // 1xx Informational
     ['toHaveContinueStatus', 100],
     ['toHaveSwitchingProtocolsStatus', 101],
