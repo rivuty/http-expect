@@ -2,10 +2,7 @@ import { type HttpStatusCode } from '@rivuty/http-status';
 
 import { type ResponseLike } from './ResponseLike';
 
-export const expectStatus = (
-  response: ResponseLike,
-  expected: (typeof HttpStatusCode)[keyof typeof HttpStatusCode],
-) => {
+export const expectStatus = (response: ResponseLike, expected: HttpStatusCode) => {
   const actual = response.status;
 
   const pass = actual === expected;
