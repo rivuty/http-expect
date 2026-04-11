@@ -1,9 +1,9 @@
 import { type HttpStatusCode } from '@rivuty/http-status';
 
-import { type ResponseLike } from './ResponseLike';
+import { type WithStatus } from './WithStatus';
 
-export const expectStatus = (response: ResponseLike, expected: HttpStatusCode) => {
-  const actual = response.status;
+export const expectStatus = (received: WithStatus, expected: HttpStatusCode) => {
+  const actual = received.status;
 
   const pass = actual === expected;
 

@@ -1,17 +1,17 @@
-import { type ResponseLike } from './ResponseLike';
+import { type WithStatus } from './WithStatus';
 
 export const expectStatusRange = ({
-  response,
+  received,
   min,
   max,
   label,
 }: {
-  response: ResponseLike;
+  received: WithStatus;
   min: number;
   max: number;
   label: string;
 }) => {
-  const actual = response.status;
+  const actual = received.status;
 
   const pass = actual >= min && actual <= max;
 

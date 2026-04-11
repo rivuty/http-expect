@@ -2,7 +2,7 @@ import { HttpStatusCodes } from '@rivuty/http-status';
 
 import { expectStatus } from './expectStatus';
 import { expectStatusRange } from './expectStatusRange';
-import { type ResponseLike } from './ResponseLike';
+import { type WithStatus } from './WithStatus';
 
 export interface StatusMatchers<_> {
   // 1xx-5xx ranges
@@ -81,98 +81,94 @@ export interface StatusMatchers<_> {
 
 export const statusMatchers = {
   // 1xx-5xx ranges
-  toHave1xxInformationalStatus: (received: ResponseLike) =>
-    expectStatusRange({ response: received, min: 100, max: 199, label: '1xx Informational' }),
-  toHave2xxSuccessfulStatus: (received: ResponseLike) =>
-    expectStatusRange({ response: received, min: 200, max: 299, label: '2xx Successful' }),
-  toHave3xxRedirectionStatus: (received: ResponseLike) =>
-    expectStatusRange({ response: received, min: 300, max: 399, label: '3xx Redirection' }),
-  toHave4xxClientErrorStatus: (received: ResponseLike) =>
-    expectStatusRange({ response: received, min: 400, max: 499, label: '4xx Client Error' }),
-  toHave5xxServerErrorStatus: (received: ResponseLike) =>
-    expectStatusRange({ response: received, min: 500, max: 599, label: '5xx Server Error' }),
+  toHave1xxInformationalStatus: (received: WithStatus) =>
+    expectStatusRange({ received, min: 100, max: 199, label: '1xx Informational' }),
+  toHave2xxSuccessfulStatus: (received: WithStatus) =>
+    expectStatusRange({ received, min: 200, max: 299, label: '2xx Successful' }),
+  toHave3xxRedirectionStatus: (received: WithStatus) =>
+    expectStatusRange({ received, min: 300, max: 399, label: '3xx Redirection' }),
+  toHave4xxClientErrorStatus: (received: WithStatus) =>
+    expectStatusRange({ received, min: 400, max: 499, label: '4xx Client Error' }),
+  toHave5xxServerErrorStatus: (received: WithStatus) =>
+    expectStatusRange({ received, min: 500, max: 599, label: '5xx Server Error' }),
   // 1xx Informational
-  toHaveContinueStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.Continue),
-  toHaveSwitchingProtocolsStatus: (received: ResponseLike) =>
-    expectStatus(received, HttpStatusCodes.SwitchingProtocols),
-  toHaveProcessingStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.Processing),
-  toHaveEarlyHintsStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.EarlyHints),
+  toHaveContinueStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.Continue),
+  toHaveSwitchingProtocolsStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.SwitchingProtocols),
+  toHaveProcessingStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.Processing),
+  toHaveEarlyHintsStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.EarlyHints),
   // 2xx Success
-  toHaveOkStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.Ok),
-  toHaveCreatedStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.Created),
-  toHaveAcceptedStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.Accepted),
-  toHaveNonAuthoritativeInformationStatus: (received: ResponseLike) =>
+  toHaveOkStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.Ok),
+  toHaveCreatedStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.Created),
+  toHaveAcceptedStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.Accepted),
+  toHaveNonAuthoritativeInformationStatus: (received: WithStatus) =>
     expectStatus(received, HttpStatusCodes.NonAuthoritativeInformation),
-  toHaveNoContentStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.NoContent),
-  toHaveResetContentStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.ResetContent),
-  toHavePartialContentStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.PartialContent),
-  toHaveMultiStatusStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.MultiStatus),
-  toHaveAlreadyReportedStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.AlreadyReported),
-  toHaveInstanceManipulationUsedStatus: (received: ResponseLike) =>
+  toHaveNoContentStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.NoContent),
+  toHaveResetContentStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.ResetContent),
+  toHavePartialContentStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.PartialContent),
+  toHaveMultiStatusStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.MultiStatus),
+  toHaveAlreadyReportedStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.AlreadyReported),
+  toHaveInstanceManipulationUsedStatus: (received: WithStatus) =>
     expectStatus(received, HttpStatusCodes.InstanceManipulationUsed),
   // 3xx Redirection
-  toHaveMultipleChoicesStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.MultipleChoices),
-  toHaveMovedPermanentlyStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.MovedPermanently),
-  toHaveFoundStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.Found),
-  toHaveSeeOtherStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.SeeOther),
-  toHaveNotModifiedStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.NotModified),
-  toHaveUseProxyStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.UseProxy),
-  toHaveTemporaryRedirectStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.TemporaryRedirect),
-  toHavePermanentRedirectStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.PermanentRedirect),
+  toHaveMultipleChoicesStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.MultipleChoices),
+  toHaveMovedPermanentlyStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.MovedPermanently),
+  toHaveFoundStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.Found),
+  toHaveSeeOtherStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.SeeOther),
+  toHaveNotModifiedStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.NotModified),
+  toHaveUseProxyStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.UseProxy),
+  toHaveTemporaryRedirectStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.TemporaryRedirect),
+  toHavePermanentRedirectStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.PermanentRedirect),
   // 4xx Client Errors
-  toHaveBadRequestStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.BadRequest),
-  toHaveUnauthorizedStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.Unauthorized),
-  toHavePaymentRequiredStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.PaymentRequired),
-  toHaveForbiddenStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.Forbidden),
-  toHaveNotFoundStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.NotFound),
-  toHaveMethodNotAllowedStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.MethodNotAllowed),
-  toHaveNotAcceptableStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.NotAcceptable),
-  toHaveProxyAuthenticationRequiredStatus: (received: ResponseLike) =>
+  toHaveBadRequestStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.BadRequest),
+  toHaveUnauthorizedStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.Unauthorized),
+  toHavePaymentRequiredStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.PaymentRequired),
+  toHaveForbiddenStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.Forbidden),
+  toHaveNotFoundStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.NotFound),
+  toHaveMethodNotAllowedStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.MethodNotAllowed),
+  toHaveNotAcceptableStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.NotAcceptable),
+  toHaveProxyAuthenticationRequiredStatus: (received: WithStatus) =>
     expectStatus(received, HttpStatusCodes.ProxyAuthenticationRequired),
-  toHaveRequestTimeoutStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.RequestTimeout),
-  toHaveConflictStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.Conflict),
-  toHaveGoneStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.Gone),
-  toHaveLengthRequiredStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.LengthRequired),
-  toHavePreconditionFailedStatus: (received: ResponseLike) =>
-    expectStatus(received, HttpStatusCodes.PreconditionFailed),
-  toHavePayloadTooLargeStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.PayloadTooLarge),
-  toHaveUriTooLongStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.UriTooLong),
-  toHaveUnsupportedMediaTypeStatus: (received: ResponseLike) =>
+  toHaveRequestTimeoutStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.RequestTimeout),
+  toHaveConflictStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.Conflict),
+  toHaveGoneStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.Gone),
+  toHaveLengthRequiredStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.LengthRequired),
+  toHavePreconditionFailedStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.PreconditionFailed),
+  toHavePayloadTooLargeStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.PayloadTooLarge),
+  toHaveUriTooLongStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.UriTooLong),
+  toHaveUnsupportedMediaTypeStatus: (received: WithStatus) =>
     expectStatus(received, HttpStatusCodes.UnsupportedMediaType),
-  toHaveRangeNotSatisfiableStatus: (received: ResponseLike) =>
+  toHaveRangeNotSatisfiableStatus: (received: WithStatus) =>
     expectStatus(received, HttpStatusCodes.RangeNotSatisfiable),
-  toHaveExpectationFailedStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.ExpectationFailed),
-  toHaveMisdirectedRequestStatus: (received: ResponseLike) =>
-    expectStatus(received, HttpStatusCodes.MisdirectedRequest),
-  toHaveUnprocessableContentStatus: (received: ResponseLike) =>
+  toHaveExpectationFailedStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.ExpectationFailed),
+  toHaveMisdirectedRequestStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.MisdirectedRequest),
+  toHaveUnprocessableContentStatus: (received: WithStatus) =>
     expectStatus(received, HttpStatusCodes.UnprocessableContent),
-  toHaveLockedStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.Locked),
-  toHaveFailedDependencyStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.FailedDependency),
-  toHaveTooEarlyStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.TooEarly),
-  toHaveUpgradeRequiredStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.UpgradeRequired),
-  toHavePreconditionRequiredStatus: (received: ResponseLike) =>
+  toHaveLockedStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.Locked),
+  toHaveFailedDependencyStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.FailedDependency),
+  toHaveTooEarlyStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.TooEarly),
+  toHaveUpgradeRequiredStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.UpgradeRequired),
+  toHavePreconditionRequiredStatus: (received: WithStatus) =>
     expectStatus(received, HttpStatusCodes.PreconditionRequired),
-  toHaveTooManyRequestsStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.TooManyRequests),
-  toHaveRequestHeaderFieldsTooLargeStatus: (received: ResponseLike) =>
+  toHaveTooManyRequestsStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.TooManyRequests),
+  toHaveRequestHeaderFieldsTooLargeStatus: (received: WithStatus) =>
     expectStatus(received, HttpStatusCodes.RequestHeaderFieldsTooLarge),
-  toHaveUnavailableForLegalReasonsStatus: (received: ResponseLike) =>
+  toHaveUnavailableForLegalReasonsStatus: (received: WithStatus) =>
     expectStatus(received, HttpStatusCodes.UnavailableForLegalReasons),
   // 5xx Server Errors
-  toHaveInternalServerErrorStatus: (received: ResponseLike) =>
+  toHaveInternalServerErrorStatus: (received: WithStatus) =>
     expectStatus(received, HttpStatusCodes.InternalServerError),
-  toHaveNotImplementedStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.NotImplemented),
-  toHaveBadGatewayStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.BadGateway),
-  toHaveServiceUnavailableStatus: (received: ResponseLike) =>
-    expectStatus(received, HttpStatusCodes.ServiceUnavailable),
-  toHaveGatewayTimeoutStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.GatewayTimeout),
-  toHaveHttpVersionNotSupportedStatus: (received: ResponseLike) =>
+  toHaveNotImplementedStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.NotImplemented),
+  toHaveBadGatewayStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.BadGateway),
+  toHaveServiceUnavailableStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.ServiceUnavailable),
+  toHaveGatewayTimeoutStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.GatewayTimeout),
+  toHaveHttpVersionNotSupportedStatus: (received: WithStatus) =>
     expectStatus(received, HttpStatusCodes.HttpVersionNotSupported),
-  toHaveVariantAlsoNegotiatesStatus: (received: ResponseLike) =>
+  toHaveVariantAlsoNegotiatesStatus: (received: WithStatus) =>
     expectStatus(received, HttpStatusCodes.VariantAlsoNegotiates),
-  toHaveInsufficientStorageStatus: (received: ResponseLike) =>
+  toHaveInsufficientStorageStatus: (received: WithStatus) =>
     expectStatus(received, HttpStatusCodes.InsufficientStorage),
-  toHaveLoopDetectedStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.LoopDetected),
-  toHaveNotExtendedStatus: (received: ResponseLike) => expectStatus(received, HttpStatusCodes.NotExtended),
-  toHaveNetworkAuthenticationRequiredStatus: (received: ResponseLike) =>
+  toHaveLoopDetectedStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.LoopDetected),
+  toHaveNotExtendedStatus: (received: WithStatus) => expectStatus(received, HttpStatusCodes.NotExtended),
+  toHaveNetworkAuthenticationRequiredStatus: (received: WithStatus) =>
     expectStatus(received, HttpStatusCodes.NetworkAuthenticationRequired),
 };
