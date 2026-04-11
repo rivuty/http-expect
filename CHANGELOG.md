@@ -7,6 +7,7 @@
 - Added `toHave3xxRedirectionStatus` matcher for asserting 3xx Redirection status codes
 - Added `toHave4xxClientErrorStatus` matcher for asserting 4xx Client Error status codes
 - Added `toHave5xxServerErrorStatus` matcher for asserting 5xx Server Error status codes
+- Added `toHaveHeader` matcher for asserting the presence of a response header
 
 ## 1.0.0
 
