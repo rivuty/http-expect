@@ -47,7 +47,7 @@
     "@commitlint/types": "^20.5.0",
     "@rivuty/oxfmt-config": "^1.0.0",
     "@rivuty/oxlint-config": "^1.2.0",
-    "@types/node": "^25.5.0",
+    "@types/node": "^25.6.0",
     "lefthook": "^2.1.4",
     "npm-run-all2": "^8.0.4",
     "oxfmt": "^0.44.0",
